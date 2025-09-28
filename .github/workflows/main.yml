@@ -45,6 +45,35 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: newman/
+
+    - name: Send email notification
+      if: always()
+      uses: dawidd6/action-send-mail@v6
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+        subject: Phoenix Application API Testing Execution Notification
+        to: bhaskar19n@gmail.com
+        from: ${{ secrets.EMAIL_USERNAME }}
+        body: |
+              Hello,
+              PFA HTML Report generated after running POSTMAN tests via github actions
+              Link to live report(git Hub Page) : https://bhaskarkharvi.github.io/Phoenix-API-Testing/
+              Regards,
+              Bhaskar
+       # attachments: newman/index.html  - Huge in size,so commented
+       
+       
+        
+        
+        
+        
+        
+        
+      
+      
         
        
      
