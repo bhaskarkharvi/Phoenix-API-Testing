@@ -3,10 +3,10 @@ on:
  push:
    branches: [main]
  workflow_dispatch:  
- schedule: 
-     - cron: "30 02 * * *" # 8 am IST Every Day
-     - cron: "00 14 * * * " # 730 pm IST Every Day
-     - cron: "00 06 * * 1-5" # 1130 am IST Monday - Friday
+# schedule: 
+    # - cron: "30 02 * * *" # 8 am IST Every Day
+   #  - cron: "00 14 * * * " # 730 pm IST Every Day
+   #  - cron: "00 06 * * 1-5" # 1130 am IST Monday - Friday
 jobs:
  run-postman-tests:
   runs-on: ubuntu-latest
